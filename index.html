@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המזוודה הסודית | מופע ימי הולדת לילדים</title>
+    <meta name="description" content="המזוודה הסודית - מופע ימי הולדת מצחיק ואינטראקטיבי לילדים. איתמר תלתלים מגיע עד אליכם הביתה באזור המרכז והשפלה. הזמינו עכשיו!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --secondary: #FFD166;
+            --accent: #06D6A0;
+            --dark: #1A1A2E;
+            --dark-light: #16213E;
+            --purple: #7B2FF7;
+            --purple-light: #9D5CF5;
+            --pink: #FF6B9D;
+            --blue: #4ECDC4;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6C757D;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 40%, #0F3460 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(123, 47, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.15) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        /* Floating decorations */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .float-item {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatAround 6s ease-in-out infinite;
+            opacity: 0.4;
+        }
+
+        .float-item:nth-child(1) { top: 15%; right: 10%; animation-delay: 0s; font-size: 2.5rem; }
+        .float-item:nth-child(2) { top: 25%; left: 8%; animation-delay: 1s; font-size: 1.8rem; }
+        .float-item:nth-child(3) { bottom: 30%; right: 15%; animation-delay: 2s; font-size: 2.2rem; }
+        .float-item:nth-child(4) { bottom: 20%; left: 12%; animation-delay: 0.5s; font-size: 2rem; }
+        .float-item:nth-child(5) { top: 50%; right: 5%; animation-delay: 1.5s; font-size: 1.5rem; }
+        .float-item:nth-child(6) { top: 10%; left: 30%; animation-delay: 3s; font-size: 1.8rem; }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(5deg); }
+            66% { transform: translateY(10px) rotate(-3deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        /* Logo / Brand */
+        .logo-area {
+            margin-bottom: 30px;
+        }
+
+        .suitcase-icon {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            animation: suitcaseWiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes suitcaseWiggle {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            25% { transform: rotate(3deg) scale(1.05); }
+            50% { transform: rotate(-2deg) scale(1); }
+            75% { transform: rotate(2deg) scale(1.02); }
+        }
+
+        .brand-name {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .brand-name span {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: rgba(255,255,255,0.85);
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .hero-performer {
+            font-size: 1.15rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-tagline em {
+            font-style: normal;
+            color: var(--secondary);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            font-size: 1.3rem;
+            padding: 20px 45px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-phone {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 1rem;
+            padding: 14px 30px;
+        }
+
+        .btn-phone:hover {
+            border-color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero-trust {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+        }
+
+        .trust-item .icon {
+            font-size: 1.2rem;
+        }
+
+        /* ===== SECTION BASE ===== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--gray);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== WHAT IS THE SHOW ===== */
+        .what-section {
+            background: var(--gray-light);
+        }
+
+        .what-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .what-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .what-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .what-card .card-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .what-card h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .what-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .how-section {
+            background: var(--white);
+        }
+
+        .how-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .how-steps::before {
+            content: '';
+            position: absolute;
+            right: 30px;
+            top: 40px;
+            bottom: 40px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary), var(--purple), var(--accent));
+            border-radius: 3px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 25px 0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step:nth-child(1) .step-number { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
+        .step:nth-child(2) .step-number { background: linear-gradient(135deg, var(--purple), var(--purple-light)); }
+        .step:nth-child(3) .step-number { background: linear-gradient(135deg, var(--accent), #04B890); }
+
+        .step-content h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .step-content p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* ===== GALLERY PLACEHOLDER ===== */
+        .gallery-section {
+            background: linear-gradient(135deg, #1A1A2E, #16213E);
+            color: white;
+            text-align: center;
+        }
+
+        .gallery-section .section-title {
+            color: white;
+        }
+
+        .gallery-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 4/3;
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-placeholder .scene-emoji {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            filter: saturate(0.8);
+        }
+
+        .gallery-placeholder:nth-child(1) { background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(255,107,53,0.05)); }
+        .gallery-placeholder:nth-child(2) { background: linear-gradient(135deg, rgba(123,47,247,0.2), rgba(123,47,247,0.05)); }
+        .gallery-placeholder:nth-child(3) { background: linear-gradient(135deg, rgba(78,205,196,0.2), rgba(78,205,196,0.05)); }
+
+        .gallery-coming {
+            margin-top: 30px;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            background: var(--gray-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: 'Rubik', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            opacity: 0.15;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .stars {
+            color: #FFC107;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .testimonial .author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .testimonial .author span {
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        /* ===== WHY US ===== */
+        .why-section {
+            background: var(--white);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            background: var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            background: var(--white);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+
+        .why-item .why-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .why-item h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .why-item p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: var(--gray-light);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-light);
+        }
+
+        .faq-question .arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .faq-item.open .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 25px 20px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.02rem;
+        }
+
+        /* ===== CTA BOTTOM ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section .section-title {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn-whatsapp {
+            background: white;
+            color: #25D366;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-section .btn-whatsapp:hover {
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulseWA 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulseWA {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* ===== MOBILE NAV BAR (bottom sticky) ===== */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+            z-index: 998;
+            padding: 10px 15px calc(10px + env(safe-area-inset-bottom));
+        }
+
+        .mobile-bar-inner {
+            display: flex;
+            gap: 10px;
+        }
+
+        .mobile-bar a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            font-family: 'Heebo', sans-serif;
+        }
+
+        .mobile-bar .btn-wa-mobile {
+            background: #25D366;
+            color: white;
+        }
+
+        .mobile-bar .btn-call-mobile {
+            background: var(--gray-light);
+            color: var(--dark);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 16px;
+            }
+
+            .hero {
+                padding: 80px 16px 100px;
+                min-height: auto;
+            }
+
+            .suitcase-icon {
+                width: 75px;
+                height: 75px;
+            }
+
+            .hero-trust {
+                gap: 15px;
+            }
+
+            .trust-item {
+                font-size: 0.85rem;
+            }
+
+            .how-steps::before {
+                right: 22px;
+            }
+
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .mobile-bar {
+                display: block;
+            }
+
+            .whatsapp-float {
+                bottom: 95px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="float-item">&#127881;</div>
+            <div class="float-item">&#11088;</div>
+            <div class="float-item">&#127880;</div>
+            <div class="float-item">&#127879;</div>
+            <div class="float-item">&#129395;</div>
+            <div class="float-item">&#127882;</div>
+        </div>
+
+        <div class="hero-content">
+            <div class="logo-area">
+                <!-- Suitcase SVG Logo -->
+                <svg class="suitcase-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD166"/>
+                            <stop offset="100%" style="stop-color:#FF6B35"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Suitcase body -->
+                    <rect x="15" y="38" width="90" height="62" rx="12" fill="url(#suitGrad)"/>
+                    <!-- Handle -->
+                    <path d="M42 38V28C42 22 48 17 55 17H65C72 17 78 22 78 28V38" stroke="#FFD166" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <!-- Clasp -->
+                    <rect x="50" y="60" width="20" height="14" rx="4" fill="white" opacity="0.9"/>
+                    <circle cx="60" cy="67" r="3" fill="#FF6B35"/>
+                    <!-- Stars/sparkles -->
+                    <circle cx="28" cy="25" r="3" fill="#FFD166" opacity="0.8"/>
+                    <circle cx="95" cy="30" r="2.5" fill="#FF6B35" opacity="0.7"/>
+                    <circle cx="15" cy="50" r="2" fill="#FFD166" opacity="0.6"/>
+                    <path d="M100 15L102 20L107 18L103 22L108 24L103 25L105 30L101 27L98 31L99 26L94 25L99 23L97 18L101 21Z" fill="#FFD166" opacity="0.7"/>
+                    <!-- Bottom wheels -->
+                    <circle cx="38" cy="100" r="5" fill="rgba(255,255,255,0.3)"/>
+                    <circle cx="82" cy="100" r="5" fill="rgba(255,255,255,0.3)"/>
+                    <!-- Decorative stripes -->
+                    <rect x="15" y="62" width="90" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
+                    <rect x="15" y="78" width="90" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
+                </svg>
+            </div>
+
+            <h1 class="brand-name"><span>המזוודה הסודית</span></h1>
+            <p class="hero-subtitle">מופע ימי הולדת לילדים שהם באמת זוכרים</p>
+            <p class="hero-performer">&#9733; עם איתמר תלתלים &#9733;</p>
+
+            <p class="hero-tagline">
+                שעה של צחוק, הפתעות וקסם<br>
+                <em>מגיעים עד אליכם הביתה</em>
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%95%D7%A4%D7%A2%20%D7%9C%D7%99%D7%95%D7%9D%20%D7%94%D7%95%D7%9C%D7%93%D7%AA" class="btn btn-whatsapp">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    שלחו הודעה בוואטסאפ
+                </a>
+                <a href="tel:0546379936" class="btn btn-phone">
+                    &#128222; או חייגו 054-637-9936
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <div class="trust-item">
+                    <span class="icon">&#127968;</span> מגיעים עד אליכם
+                </div>
+                <div class="trust-item">
+                    <span class="icon">&#127775;</span> מופע מקצועי
+                </div>
+                <div class="trust-item">
+                    <span class="icon">&#128118;</span> גילאי 4-10
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT IS THE SHOW -->
+    <section class="what-section">
+        <div class="container">
+            <h2 class="section-title fade-up">מה זה המופע?</h2>
+            <p class="section-subtitle fade-up">לא הפעלה רגילה. מופע אמיתי שגורם לילדים להשתולל מצחוק</p>
+
+            <div class="what-grid">
+                <div class="what-card fade-up">
+                    <span class="card-emoji">&#129395;</span>
+                    <h3>קומדיה אינטראקטיבית</h3>
+                    <p>איתמר תלתלים מושך את הילדים לתוך המופע. הם לא צופים - הם חלק מהשואו. צחוק מההתחלה ועד הסוף.</p>
+                </div>
+                <div class="what-card fade-up">
+                    <span class="card-emoji">&#127881;</span>
+                    <h3>הפתעות מהמזוודה</h3>
+                    <p>מהמזוודה הסודית יוצאים אביזרים מטורפים, הפתעות ורגעים שהילדים לא מצפים להם. כל מופע הוא חוויה חדשה.</p>
+                </div>
+                <div class="what-card fade-up">
+                    <span class="card-emoji">&#128171;</span>
+                    <h3>שעה של שקט בשבילכם</h3>
+                    <p>הילדים מרוכזים, צוחקים ונהנים. אתם יושבים בצד, שותים קפה ונהנים מהאירוע בלי כאוס.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="container">
+            <h2 class="section-title fade-up">איך זה עובד?</h2>
+            <p class="section-subtitle fade-up">פשוט, מהיר, בלי כאב ראש</p>
+
+            <div class="how-steps">
+                <div class="step fade-up">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>שולחים הודעה</h3>
+                        <p>מספרים לנו על האירוע - תאריך, גיל ילד/ה חוגג/ת, כמה ילדים, ומיקום. תוך דקות נחזור אליכם.</p>
+                    </div>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>סוגרים תאריך</h3>
+                        <p>בודקים זמינות, מתאמים שעה, וסגרנו. בלי הלוך וחזור מיותר.</p>
+                    </div>
+                </div>
+                <div class="step fade-up">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>איתמר מגיע ומרים את האירוע</h3>
+                        <p>ביום האירוע איתמר מגיע עם המזוודה הסודית, ומספק שעה של צחוק, הפתעות וזיכרונות שנשארים.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY PLACEHOLDER -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title fade-up">רגעים מהמופעים</h2>
+            <p class="section-subtitle fade-up">כל מופע הוא חגיגה</p>
+
+            <div class="gallery-grid fade-up">
+                <div class="gallery-placeholder">
+                    <span class="scene-emoji">&#127881;&#128102;&#128103;</span>
+                    <span>ילדים צוחקים במופע</span>
+                </div>
+                <div class="gallery-placeholder">
+                    <span class="scene-emoji">&#129520;&#10024;</span>
+                    <span>הפתעות מהמזוודה</span>
+                </div>
+                <div class="gallery-placeholder">
+                    <span class="scene-emoji">&#127874;&#127775;</span>
+                    <span>רגעי יום הולדת</span>
+                </div>
+            </div>
+            <p class="gallery-coming fade-up">&#128247; תמונות וסרטונים מהמופעים בקרוב!</p>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title fade-up">מה ההורים אומרים</h2>
+            <p class="section-subtitle fade-up">הורים שכבר חגגו איתנו</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"הילדים לא הפסיקו לצחוק. גם שבוע אחרי הם עדיין מדברים על המזוודה הסודית. איתמר פשוט גנב את ההצגה!"</p>
+                    <div class="author">מיכל ר. <span>| אמא ליהלי בת 6, רעננה</span></div>
+                </div>
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"חיפשתי משהו שונה מהפעלה רגילה והמזוודה הסודית הייתה בול. מקצועי, מצחיק, והילדים היו מרותקים מהרגע הראשון."</p>
+                    <div class="author">נועה ל. <span>| אמא לאורי בן 7, הרצליה</span></div>
+                </div>
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"סוף סוף יכולתי לשבת בצד ולהנות. איתמר שלט בילדים בצורה מדהימה, כולם היו מרוכזים ונהנים. ממליצה בחום!"</p>
+                    <div class="author">שירה כ. <span>| אמא לנועם בן 5, כפר סבא</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title fade-up">למה המזוודה הסודית?</h2>
+            <p class="section-subtitle fade-up">כי ילדים שלכם מגיעים את הכי טוב</p>
+
+            <div class="why-grid">
+                <div class="why-item fade-up">
+                    <span class="why-emoji">&#127917;</span>
+                    <h3>מופע, לא הפעלה</h3>
+                    <p>תוכן מקורי, תסריט מובנה, ולא סתם משחקים עם מוזיקה ברקע</p>
+                </div>
+                <div class="why-item fade-up">
+                    <span class="why-emoji">&#128663;</span>
+                    <h3>מגיעים אליכם</h3>
+                    <p>עד הבית, הגן או כל מקום שתבחרו. אתם לא צריכים להתאמץ</p>
+                </div>
+                <div class="why-item fade-up">
+                    <span class="why-emoji">&#128170;</span>
+                    <h3>ניסיון מוכח</h3>
+                    <p>עשרות מופעים מוצלחים, ילדים שמחים והורים מרוצים</p>
+                </div>
+                <div class="why-item fade-up">
+                    <span class="why-emoji">&#128153;</span>
+                    <h3>אמינות ומקצועיות</h3>
+                    <p>מגיעים בזמן, מופע מלוטש, ותקשורת מהירה מהרגע הראשון</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title fade-up">שאלות נפוצות</h2>
+
+            <div class="faq-list">
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        לאיזה גילאים מתאים המופע?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המופע מתאים לגילאי 4 עד 10. איתמר מתאים את התוכן והאנרגיה לגיל הילדים בכל מופע.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה זמן נמשך המופע?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המופע נמשך כשעה של בידור רצוף. מספיק כדי שהילדים ייהנו ולא מספיק כדי שישתעממו.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        לאן אתם מגיעים?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>אנחנו מופיעים בכל אזור המרכז והשפלה - מגדרה ועד חדרה והסביבה. לא בטוחים שאתם באזור? דברו איתנו ונבדוק.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה ילדים יכולים להשתתף?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המופע עובד מצוין עם 10 עד 35 ילדים. לקבוצות גדולות יותר, דברו איתנו ונמצא פתרון.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        מה צריך להכין מראש?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>כלום! רק מקום עם קצת מרחב (סלון, גינה, חדר) ואנחנו מביאים את כל השאר. אתם רק צריכים לדאוג לעוגה.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BOTTOM -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title fade-up">&#127881; לבן או לבת שלכם מגיע מופע מושלם</h2>
+            <p class="fade-up">התאריכים הכי טובים נתפסים מהר. שריינו את שלכם עכשיו.</p>
+            <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%95%D7%A4%D7%A2%20%D7%9C%D7%99%D7%95%D7%9D%20%D7%94%D7%95%D7%9C%D7%93%D7%AA" class="btn btn-whatsapp fade-up">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                דברו איתנו בוואטסאפ
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&#169; 2025 המזוודה הסודית | מופע ימי הולדת לילדים עם איתמר תלתלים</p>
+        <p style="margin-top: 8px;">
+            <a href="tel:0546379936">054-637-9936</a> |
+            <a href="https://wa.me/972546379936">WhatsApp</a>
+        </p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%95%D7%A4%D7%A2" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- MOBILE BOTTOM BAR -->
+    <div class="mobile-bar">
+        <div class="mobile-bar-inner">
+            <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%95%D7%A4%D7%A2" class="btn-wa-mobile">
+                &#128172; וואטסאפ
+            </a>
+            <a href="tel:0546379936" class="btn-call-mobile">
+                &#128222; חייגו עכשיו
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const wasOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            // Toggle clicked
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Smooth reveal on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero .fade-up, .hero-content > *').forEach((el, i) => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
