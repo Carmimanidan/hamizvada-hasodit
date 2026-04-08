@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הבלוג של המזוודה הסודית | מדריכים וטיפים להורים על הפעלות ימי הולדת לילדים</title>
+    <meta name="description" content="טיפים, מדריכים ומידע שימושי להורים על הפעלות ימי הולדת לילדים. כמה עולה הפעלה? איך בוחרים מפעיל? רעיונות ליום הולדת בבית - כל מה שצריך לדעת.">
+    <meta name="keywords" content="הפעלות ימי הולדת, מדריכים להורים, מפעיל ליום הולדת, כמה עולה הפעלה ליום הולדת, רעיונות ליום הולדת לילדים, הפעלה ליום הולדת בבית, יום הולדת לילדים">
+
+    <meta property="og:title" content="הבלוג של המזוודה הסודית | מדריכים להורים">
+    <meta property="og:description" content="טיפים, מדריכים ומידע שימושי להורים על הפעלות ימי הולדת לילדים. כמה עולה? איך בוחרים? רעיונות ליום הולדת בבית.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="המזוודה הסודית">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --secondary: #FFD166;
+            --accent: #06D6A0;
+            --dark: #1A1A2E;
+            --dark-light: #16213E;
+            --purple: #7B2FF7;
+            --pink: #FF6B9D;
+            --blue: #4ECDC4;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray: #6C757D;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* ===== NAV ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 100;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-logo:hover {
+            color: var(--primary);
+        }
+
+        .nav-back {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-back:hover {
+            color: var(--secondary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            padding: 140px 20px 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 40%, #0F3460 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 209, 102, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ===== BLOG CARDS ===== */
+        .blog-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            padding: 30px 28px 0;
+        }
+
+        .card-category {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .cat-pricing {
+            background: rgba(255, 107, 53, 0.12);
+            color: var(--primary);
+        }
+
+        .cat-guide {
+            background: rgba(123, 47, 247, 0.12);
+            color: var(--purple);
+        }
+
+        .cat-ideas {
+            background: rgba(6, 214, 160, 0.12);
+            color: var(--accent);
+        }
+
+        .card-body {
+            padding: 0 28px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h2 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .card-body h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .card-body h2 a:hover {
+            color: var(--primary);
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        .read-more .arrow {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulseWA 2s ease-in-out infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulseWA {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.8); }
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.05rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .blog-section {
+                padding: 40px 16px 60px;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                left: 20px;
+                width: 56px;
+                height: 56px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">המזוודה הסודית</a>
+        <a href="../index.html" class="nav-back">
+            <span class="arrow">&larr;</span>
+            חזרה לעמוד הראשי
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>הבלוג של <span>המזוודה הסודית</span></h1>
+            <p>טיפים, מדריכים ומידע שימושי להורים</p>
+        </div>
+    </section>
+
+    <!-- BLOG CARDS -->
+    <section class="blog-section">
+        <div class="blog-grid">
+
+            <!-- Card 1: Pricing -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <span class="card-category cat-pricing">מחירים</span>
+                </div>
+                <div class="card-body">
+                    <h2><a href="kama-ola.html">כמה עולה הפעלה ליום הולדת? מדריך מחירים 2025</a></h2>
+                    <p>כל מה שצריך לדעת על מחירי הפעלות ימי הולדת לילדים - מה משפיע על המחיר, מה הטווחים המקובלים, ואיך לדעת שאתם מקבלים תמורה אמיתית לכסף.</p>
+                    <a href="kama-ola.html" class="read-more">
+                        קראו עוד
+                        <span class="arrow">&larr;</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 2: How to Choose -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <span class="card-category cat-guide">מדריך</span>
+                </div>
+                <div class="card-body">
+                    <h2><a href="eich-bocharim.html">איך בוחרים מפעיל ליום הולדת? 7 דברים שחייבים לבדוק</a></h2>
+                    <p>לפני שסוגרים מפעיל ליום הולדת - הנה 7 שאלות שכל הורה חייב לשאול. מניסיון מקצועי ומהכשרה אקדמית ועד גמישות וביטוחים.</p>
+                    <a href="eich-bocharim.html" class="read-more">
+                        קראו עוד
+                        <span class="arrow">&larr;</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 3: Ideas -->
+            <article class="blog-card">
+                <div class="card-header">
+                    <span class="card-category cat-ideas">רעיונות</span>
+                </div>
+                <div class="card-body">
+                    <h2><a href="raayonot-bait.html">רעיונות ליום הולדת לילדים בבית - המדריך המלא</a></h2>
+                    <p>חוגגים בבית ומחפשים השראה? רעיונות מעשיים לעיצוב, תפריט, משחקים ובידור - כולל טיפים שיעשו את יום ההולדת לחוויה בלתי נשכחת גם בלי לצאת מהסלון.</p>
+                    <a href="raayonot-bait.html" class="read-more">
+                        קראו עוד
+                        <span class="arrow">&larr;</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 המזוודה הסודית | הפעלה ליום הולדת | מופע ימי הולדת מצחיק לילדים עם איתמר תלתלים | מגיעים עד אליכם הביתה באזור המרכז</p>
+        <p style="margin-top: 8px;">
+            <a href="tel:0546379936">054-637-9936</a> |
+            <a href="https://wa.me/972546379936">WhatsApp</a>
+        </p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%95%D7%A4%D7%A2" class="whatsapp-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+</body>
+</html>
