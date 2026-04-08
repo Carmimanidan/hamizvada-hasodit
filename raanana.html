@@ -24,6 +24,39 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "כמה עולה הפעלה ליום הולדת ברעננה?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "המחיר של הפעלה ליום הולדת ברעננה תלוי בפרטי האירוע - תאריך, מספר ילדים ומיקום. פנו אלינו לקבלת הצעת מחיר מותאמת אישית. למדריך מחירים מלא בקרו בעמוד המחירים שלנו."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "כמה ילדים יכולים להשתתף במופע יום הולדת ברעננה?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "המופע עובד מצוין עם 10 עד 35 ילדים. לקבוצות גדולות יותר ברעננה, דברו איתנו ונמצא פתרון."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "כמה זמן מראש צריך להזמין הפעלה ליום הולדת ברעננה?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "מומלץ להזמין 2-3 שבועות מראש. סופי שבוע וחגים ברעננה מתמלאים מהר, אז כדאי לא לחכות."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "המזוודה הסודית - מופע ימי הולדת לילדים",
         "alternateName": "המזוודה הסודית",
@@ -480,6 +513,79 @@
             border-bottom: 1px solid rgba(255,255,255,0.4);
         }
 
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: var(--gray-light);
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-light);
+        }
+
+        .faq-question .arrow {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .faq-item.open .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+            padding: 0 25px 20px;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.02rem;
+        }
+
+        .faq-answer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover {
+            color: var(--primary-dark);
+        }
+
         /* ===== NEARBY CITIES ===== */
         .nearby-section {
             background: var(--gray-light);
@@ -759,6 +865,43 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title fade-up">שאלות נפוצות על הפעלה ליום הולדת ברעננה</h2>
+
+            <div class="faq-list">
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה עולה הפעלה ליום הולדת ברעננה?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המחיר תלוי בפרטי האירוע - תאריך, מספר ילדים ומיקום. פנו אלינו לקבלת הצעת מחיר מותאמת אישית. רוצים להתרשם מראש? יש לנו <a href="../blog/kama-ola.html">מדריך מחירים מלא</a>.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה ילדים יכולים להשתתף במופע ברעננה?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>המופע עובד מצוין עם 10 עד 35 ילדים. לקבוצות גדולות יותר, דברו איתנו ונמצא פתרון.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה זמן מראש צריך להזמין הפעלה ברעננה?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>מומלץ להזמין 2-3 שבועות מראש. סופי שבוע וחגים מתמלאים מהר, אז כדאי לא לחכות.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA BOTTOM -->
     <section class="cta-section">
         <div class="container">
@@ -829,6 +972,14 @@
                 }, i * 150);
             });
         });
+
+        // FAQ Toggle
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
 
         // Track WhatsApp clicks
         document.querySelectorAll('a[href*="wa.me"]').forEach(link => {

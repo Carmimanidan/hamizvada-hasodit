@@ -437,6 +437,90 @@
             fill: white;
         }
 
+        /* ===== TOC BOX ===== */
+        .toc-box {
+            background: #F5F7FA;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+
+        .toc-box h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        .toc-box ol {
+            margin: 0;
+            padding: 0 20px 0 0;
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc-box li {
+            counter-increment: toc-counter;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .toc-box li::before {
+            content: counter(toc-counter) ". ";
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .toc-box a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary);
+            transition: color 0.3s;
+        }
+
+        .toc-box a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== READ ALSO BOX ===== */
+        .read-also {
+            background: #F5F7FA;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-top: 50px;
+        }
+
+        .read-also h3 {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        .read-also a {
+            display: block;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 1px solid #E8E8E8;
+            transition: color 0.3s;
+        }
+
+        .read-also a:last-child {
+            border-bottom: none;
+        }
+
+        .read-also a:hover {
+            color: var(--primary);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .article-hero {
@@ -509,8 +593,20 @@
             יום הולדת בבית? זה יכול להיות <strong>הדבר הכי טוב שעשיתם</strong>. בלי הלחץ של למצוא מקום, בלי לתאם שעות עם גני אירועים, ובלי להוציא הון. ילדים מרגישים הכי טוב בסביבה שמוכרת להם - ודווקא שם אפשר ליצור את החגיגה הכי שמחה, הכי אישית, והכי בלתי נשכחת. במדריך הזה ריכזנו את כל מה שאתם צריכים כדי לארגן יום הולדת מדהים בבית, מההכנות הראשונות ועד הרגע האחרון.
         </p>
 
+        <div class="toc-box">
+            <h3>מה תמצאו במדריך:</h3>
+            <ol>
+                <li><a href="#lama-bait">למה דווקא יום הולדת בבית?</a></li>
+                <li><a href="#hachanot">הכנות בסיסיות</a></li>
+                <li><a href="#raayonot-hafaalot">רעיונות להפעלות עצמאיות</a></li>
+                <li><a href="#mafil-miktzoi">להזמין מפעיל מקצועי</a></li>
+                <li><a href="#tipim-gil">טיפים לפי גיל</a></li>
+                <li><a href="#checklist">צ'קליסט ליום האירוע</a></li>
+            </ol>
+        </div>
+
         <!-- SECTION 1 -->
-        <h2>&#127968; למה דווקא יום הולדת בבית?</h2>
+        <h2 id="lama-bait">&#127968; למה דווקא יום הולדת בבית?</h2>
 
         <p>
             יש סיבה שיותר ויותר הורים בוחרים לחגוג את יום ההולדת של הילדים בבית. זה לא פשרה - זה בחירה חכמה. הנה למה:
@@ -530,7 +626,7 @@
         </div>
 
         <!-- SECTION 2 -->
-        <h2>&#127880; הכנות בסיסיות</h2>
+        <h2 id="hachanot">&#127880; הכנות בסיסיות</h2>
 
         <p>
             לפני שנכנס לרעיונות המטורפים, בואו נסדר את הבסיס. ההכנות לא צריכות להיות מסובכות - רק מאורגנות.
@@ -565,7 +661,7 @@
         </p>
 
         <!-- SECTION 3 -->
-        <h2>&#127912; רעיונות להפעלות עצמאיות</h2>
+        <h2 id="raayonot-hafaalot">&#127912; רעיונות להפעלות עצמאיות</h2>
 
         <p>
             הנה הפעלות שכל הורה יכול להפעיל בעצמו, בלי ניסיון קודם ובלי ציוד מיוחד. בחרו 3-4 מתוך הרשימה ותהיה לכם מסיבה מושלמת.
@@ -624,7 +720,7 @@
         </div>
 
         <!-- SECTION 4 -->
-        <h2>&#127908; להזמין מפעיל מקצועי</h2>
+        <h2 id="mafil-miktzoi">&#127908; להזמין מפעיל מקצועי</h2>
 
         <p>
             לפעמים רוצים פשוט לשבת בצד, להנות, ולתת למישהו מקצועי לנהל את השואו. זה לגיטימי לגמרי - ולפעמים זה באמת ההחלטה הנכונה. במיוחד אם:
@@ -654,7 +750,7 @@
         <ul>
             <li><strong>קוסם / קוסמת</strong> - קסמים, בלונים, הפתעות. מתאים מאוד לגילאי 4-7.</li>
             <li><strong>מפעיל/ת משחקים</strong> - תחרויות, ריקודים, משחקי שטח. אנרגטי ומהנה.</li>
-            <li><strong>מופע קומדיה / ליצנות</strong> - הילדים צוחקים ומשתתפים. דורש שחקן מוכשר.</li>
+            <li><strong>מופע קומדיה / ליצנות</strong> - הילדים צוחקים ומשתתפים. דורש שחקן מוכשר. זה בדיוק מה שאנחנו עושים ב<a href="../index.html">המזוודה הסודית</a> - מופע קומדיה עם שחקן מקצועי שמגיע אליכם הביתה.</li>
             <li><strong>שחקן דמות</strong> - מגיע בתחפושת (גיבור על, נסיכה, דמות מצוירת). פופולרי אצל קטנטנים.</li>
             <li><strong>סדנאות</strong> - בישול, מדע, אומנות. מתאים לגילאי 8+ שרוצים משהו "מבוגר יותר".</li>
         </ul>
@@ -664,7 +760,7 @@
         </div>
 
         <!-- SECTION 5 -->
-        <h2>&#127874; טיפים לפי גיל</h2>
+        <h2 id="tipim-gil">&#127874; טיפים לפי גיל</h2>
 
         <p>
             לא כל גיל מתלהב מאותו דבר. הנה מה שעובד לכל קבוצת גיל:
@@ -692,7 +788,7 @@
         </div>
 
         <!-- SECTION 6 -->
-        <h2>&#9989; צ'קליסט ליום האירוע</h2>
+        <h2 id="checklist">&#9989; צ'קליסט ליום האירוע</h2>
 
         <p>
             הדפיסו את הרשימה הזו ותסמנו. ככה שום דבר לא נשכח:
@@ -717,6 +813,13 @@
 
         <div class="tip-box">
             <strong>&#128161; טיפ אחרון:</strong> תשמרו על עצמכם אנרגיה. הכינו הכל יום קודם ככל שאפשר. ביום עצמו אתם רוצים להיות רגועים ושמחים - הילדים מרגישים את זה.
+        </div>
+
+        <!-- READ ALSO -->
+        <div class="read-also">
+            <h3>קראו גם:</h3>
+            <a href="kama-ola.html">כמה עולה הפעלה ליום הולדת? מדריך מחירים 2026</a>
+            <a href="eich-bocharim.html">איך בוחרים מפעיל ליום הולדת? 7 דברים שחייבים לבדוק</a>
         </div>
 
         <!-- CTA BOX -->
