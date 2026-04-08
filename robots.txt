@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carmimanidan.github.io/hamizvada-hasodit/sitemap.xml
