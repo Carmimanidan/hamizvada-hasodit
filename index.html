@@ -5,9 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>המזוודה הסודית | מופע ימי הולדת לילדים</title>
     <meta name="description" content="המזוודה הסודית - מופע ימי הולדת מצחיק ואינטראקטיבי לילדים. איתמר תלתלים מגיע עד אליכם הביתה באזור המרכז והשפלה. הזמינו עכשיו!">
+
+    <!-- OG Meta Tags for WhatsApp / Facebook sharing -->
+    <meta property="og:title" content="המזוודה הסודית | מופע ימי הולדת לילדים">
+    <meta property="og:description" content="מופע ימי הולדת מצחיק ואינטראקטיבי עם איתמר תלתלים. מגיעים עד אליכם הביתה באזור המרכז והשפלה.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:site_name" content="המזוודה הסודית">
+    <!-- Replace with real image URL when available: -->
+    <!-- <meta property="og:image" content="https://yoursite.com/og-image.jpg"> -->
+    <!-- <meta property="og:url" content="https://yoursite.com"> -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon: suitcase emoji as SVG data URI -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Facebook Pixel - Replace YOUR_PIXEL_ID with your actual pixel ID -->
+    <!--
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+    -->
+
+    <!-- Schema.org Local Business structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "המזוודה הסודית",
+        "description": "מופע ימי הולדת מצחיק ואינטראקטיבי לילדים עם איתמר תלתלים. מגיעים עד אליכם הביתה.",
+        "telephone": "+972546379936",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 32.0853,
+                "longitude": 34.7818
+            },
+            "geoRadius": "80000"
+        },
+        "serviceArea": {
+            "@type": "AdministrativeArea",
+            "name": "מרכז ושפלה, ישראל"
+        },
+        "priceRange": "$$",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "30",
+            "bestRating": "5"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "מופעי ימי הולדת",
+            "itemListElement": [{
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "מופע יום הולדת - המזוודה הסודית",
+                    "description": "מופע אינטראקטיבי ומצחיק לילדים בגילאי 4-10, כשעה, בבית הלקוח"
+                }
+            }]
+        }
+    }
+    </script>
+
     <style>
         :root {
             --primary: #FF6B35;
@@ -109,21 +186,55 @@
         /* Logo / Brand */
         .logo-area {
             margin-bottom: 30px;
+            cursor: pointer;
         }
 
         .suitcase-icon {
             display: inline-block;
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             margin-bottom: 15px;
-            animation: suitcaseWiggle 3s ease-in-out infinite;
         }
 
-        @keyframes suitcaseWiggle {
-            0%, 100% { transform: rotate(-3deg) scale(1); }
-            25% { transform: rotate(3deg) scale(1.05); }
-            50% { transform: rotate(-2deg) scale(1); }
-            75% { transform: rotate(2deg) scale(1.02); }
+        /* Suitcase animation */
+        .suitcase-lid {
+            transform-origin: 15px 38px;
+            animation: lidOpen 4s ease-in-out infinite;
+        }
+
+        @keyframes lidOpen {
+            0%, 100% { transform: rotate(0deg); }
+            15% { transform: rotate(-35deg); }
+            25% { transform: rotate(-30deg); }
+            40% { transform: rotate(0deg); }
+        }
+
+        .sparkle {
+            opacity: 0;
+            animation: sparkleOut 4s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { animation-delay: 0.1s; }
+        .sparkle:nth-child(2) { animation-delay: 0.2s; }
+        .sparkle:nth-child(3) { animation-delay: 0.15s; }
+        .sparkle:nth-child(4) { animation-delay: 0.25s; }
+        .sparkle:nth-child(5) { animation-delay: 0.3s; }
+
+        @keyframes sparkleOut {
+            0%, 10% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+            15% { opacity: 1; transform: translate(var(--tx), var(--ty)) scale(1); }
+            30% { opacity: 0.8; transform: translate(calc(var(--tx) * 1.5), calc(var(--ty) * 1.5)) scale(0.8); }
+            40%, 100% { opacity: 0; transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 2)) scale(0); }
+        }
+
+        .suitcase-body-group {
+            animation: suitcaseHop 4s ease-in-out infinite;
+        }
+
+        @keyframes suitcaseHop {
+            0%, 100% { transform: translateY(0); }
+            12% { transform: translateY(-3px); }
+            20% { transform: translateY(0); }
         }
 
         .brand-name {
@@ -235,6 +346,44 @@
 
         .trust-item .icon {
             font-size: 1.2rem;
+        }
+
+        /* ===== COUNTER SECTION ===== */
+        .counter-section {
+            background: var(--white);
+            padding: 50px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .counter-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .counter-item {
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .counter-number {
+            font-family: 'Rubik', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 5px;
         }
 
         /* ===== SECTION BASE ===== */
@@ -722,8 +871,8 @@
             }
 
             .suitcase-icon {
-                width: 75px;
-                height: 75px;
+                width: 90px;
+                height: 90px;
             }
 
             .hero-trust {
@@ -760,6 +909,18 @@
             body {
                 padding-bottom: 80px;
             }
+
+            .counter-section {
+                padding: 40px 16px;
+            }
+
+            .counter-grid {
+                gap: 30px;
+            }
+
+            .counter-number {
+                font-size: 2.2rem;
+            }
         }
 
         /* ===== ANIMATIONS ===== */
@@ -790,32 +951,49 @@
 
         <div class="hero-content">
             <div class="logo-area">
-                <!-- Suitcase SVG Logo -->
-                <svg class="suitcase-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Animated Suitcase SVG Logo -->
+                <svg class="suitcase-icon" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#FFD166"/>
                             <stop offset="100%" style="stop-color:#FF6B35"/>
                         </linearGradient>
+                        <linearGradient id="lidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFE08A"/>
+                            <stop offset="100%" style="stop-color:#FF8C42"/>
+                        </linearGradient>
                     </defs>
-                    <!-- Suitcase body -->
-                    <rect x="15" y="38" width="90" height="62" rx="12" fill="url(#suitGrad)"/>
-                    <!-- Handle -->
-                    <path d="M42 38V28C42 22 48 17 55 17H65C72 17 78 22 78 28V38" stroke="#FFD166" stroke-width="6" fill="none" stroke-linecap="round"/>
-                    <!-- Clasp -->
-                    <rect x="50" y="60" width="20" height="14" rx="4" fill="white" opacity="0.9"/>
-                    <circle cx="60" cy="67" r="3" fill="#FF6B35"/>
-                    <!-- Stars/sparkles -->
-                    <circle cx="28" cy="25" r="3" fill="#FFD166" opacity="0.8"/>
-                    <circle cx="95" cy="30" r="2.5" fill="#FF6B35" opacity="0.7"/>
-                    <circle cx="15" cy="50" r="2" fill="#FFD166" opacity="0.6"/>
-                    <path d="M100 15L102 20L107 18L103 22L108 24L103 25L105 30L101 27L98 31L99 26L94 25L99 23L97 18L101 21Z" fill="#FFD166" opacity="0.7"/>
-                    <!-- Bottom wheels -->
-                    <circle cx="38" cy="100" r="5" fill="rgba(255,255,255,0.3)"/>
-                    <circle cx="82" cy="100" r="5" fill="rgba(255,255,255,0.3)"/>
-                    <!-- Decorative stripes -->
-                    <rect x="15" y="62" width="90" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
-                    <rect x="15" y="78" width="90" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
+
+                    <g class="suitcase-body-group">
+                        <!-- Suitcase body (bottom) -->
+                        <rect x="20" y="65" width="100" height="45" rx="10" fill="url(#suitGrad)"/>
+                        <!-- Body stripes -->
+                        <rect x="20" y="80" width="100" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
+                        <rect x="20" y="93" width="100" height="3" fill="rgba(255,255,255,0.2)" rx="1.5"/>
+                        <!-- Clasp -->
+                        <rect x="57" y="72" width="26" height="16" rx="5" fill="white" opacity="0.9"/>
+                        <circle cx="70" cy="80" r="4" fill="#FF6B35"/>
+                        <!-- Bottom wheels -->
+                        <circle cx="42" cy="112" r="5" fill="rgba(255,255,255,0.35)"/>
+                        <circle cx="98" cy="112" r="5" fill="rgba(255,255,255,0.35)"/>
+
+                        <!-- Lid (opens) -->
+                        <g class="suitcase-lid">
+                            <rect x="20" y="38" width="100" height="30" rx="10" fill="url(#lidGrad)"/>
+                            <rect x="20" y="52" width="100" height="3" fill="rgba(255,255,255,0.25)" rx="1.5"/>
+                            <!-- Handle -->
+                            <path d="M50 38V28C50 22 55 18 62 18H78C85 18 90 22 90 28V38" stroke="#FFD166" stroke-width="5" fill="none" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Sparkles that fly out when lid opens -->
+                        <g transform="translate(70, 50)">
+                            <text class="sparkle" style="--tx: -30px; --ty: -35px;" font-size="18" text-anchor="middle">&#11088;</text>
+                            <text class="sparkle" style="--tx: 25px; --ty: -40px;" font-size="16" text-anchor="middle">&#10024;</text>
+                            <text class="sparkle" style="--tx: 0px; --ty: -45px;" font-size="20" text-anchor="middle">&#127775;</text>
+                            <text class="sparkle" style="--tx: -20px; --ty: -25px;" font-size="14" text-anchor="middle">&#128171;</text>
+                            <text class="sparkle" style="--tx: 30px; --ty: -30px;" font-size="15" text-anchor="middle">&#9733;</text>
+                        </g>
+                    </g>
                 </svg>
             </div>
 
@@ -848,6 +1026,24 @@
                 <div class="trust-item">
                     <span class="icon">&#128118;</span> גילאי 4-10
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTER -->
+    <section class="counter-section">
+        <div class="counter-grid">
+            <div class="counter-item fade-up">
+                <div class="counter-number" data-target="100">0</div>
+                <div class="counter-label">ילדים שמחים</div>
+            </div>
+            <div class="counter-item fade-up">
+                <div class="counter-number" data-target="30">0</div>
+                <div class="counter-label">מופעים מוצלחים</div>
+            </div>
+            <div class="counter-item fade-up">
+                <div class="counter-number" data-target="100">0</div>
+                <div class="counter-label" data-suffix="%">הורים ממליצים</div>
             </div>
         </div>
     </section>
@@ -964,7 +1160,7 @@
     <section class="why-section">
         <div class="container">
             <h2 class="section-title fade-up">למה המזוודה הסודית?</h2>
-            <p class="section-subtitle fade-up">כי ילדים שלכם מגיעים את הכי טוב</p>
+            <p class="section-subtitle fade-up">כי הילדים שלכם מגיעים את הכי טוב</p>
 
             <div class="why-grid">
                 <div class="why-item fade-up">
@@ -1089,9 +1285,7 @@
         function toggleFaq(el) {
             const item = el.parentElement;
             const wasOpen = item.classList.contains('open');
-            // Close all
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            // Toggle clicked
             if (!wasOpen) item.classList.add('open');
         }
 
@@ -1106,11 +1300,45 @@
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+        // Counter animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.closest('.counter-item').querySelector('.counter-label').getAttribute('data-suffix') || '+';
+                    let current = 0;
+                    const increment = target / 40;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = Math.floor(current) + suffix;
+                    }, 30);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-number').forEach(el => counterObserver.observe(el));
+
         // Smooth reveal on load
         window.addEventListener('load', () => {
             document.querySelectorAll('.hero .fade-up, .hero-content > *').forEach((el, i) => {
                 el.style.opacity = '1';
                 el.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Track WhatsApp clicks (ready for Facebook Pixel)
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', () => {
+                // Uncomment when pixel is active:
+                // fbq('track', 'Contact', {content_name: 'WhatsApp Click'});
+                // Google Analytics event (uncomment when GA is set up):
+                // gtag('event', 'whatsapp_click', {event_category: 'contact'});
             });
         });
     </script>
