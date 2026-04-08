@@ -322,7 +322,79 @@
             font-size: 1.15rem;
             color: var(--secondary);
             font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 6px;
+        }
+
+        .hero-performer-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .avatar-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .avatar-info {
+            text-align: right;
+        }
+
+        .avatar-name {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .avatar-title {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.82rem;
+        }
+
+        /* Social proof bar */
+        .hero-social-proof {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .hero-social-proof .stars-inline {
+            color: #FFC107;
+            letter-spacing: 1px;
+        }
+
+        /* Urgency bar */
+        .urgency-bar {
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.15);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: var(--secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            animation: urgencyPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes urgencyPulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
         }
 
         .hero-credential {
@@ -1253,7 +1325,14 @@
 
             <h1 class="brand-name"><span>המזוודה הסודית</span></h1>
             <p class="hero-subtitle">מופע יום הולדת מצחיק לילדים שהם באמת זוכרים</p>
-            <p class="hero-performer">&#9733; עם איתמר המפוזר &#9733;</p>
+
+            <div class="hero-performer-avatar">
+                <div class="avatar-circle">&#127917;</div>
+                <div class="avatar-info">
+                    <div class="avatar-name">איתמר המפוזר</div>
+                    <div class="avatar-title">שחקן מקצועי, בוגר לוינשטיין</div>
+                </div>
+            </div>
 
             <p class="hero-tagline">
                 שעה של צחוק, הפתעות וקסם<br>
@@ -1280,6 +1359,15 @@
                 <div class="trust-item">
                     <span class="icon">&#128118;</span> גילאי 4-10
                 </div>
+            </div>
+
+            <div class="hero-social-proof">
+                <span class="stars-inline">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span>&#8220;הילדים לא הפסיקו לצחוק&#8221; - מיכל, רעננה</span>
+            </div>
+
+            <div class="urgency-bar">
+                &#128293; סופי שבוע באפריל-מאי נתפסים מהר. שריינו תאריך
             </div>
         </div>
     </section>
