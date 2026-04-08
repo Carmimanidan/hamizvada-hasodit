@@ -1048,16 +1048,20 @@
     <section class="counter-section">
         <div class="counter-grid">
             <div class="counter-item fade-up">
-                <div class="counter-number" data-target="100">0</div>
-                <div class="counter-label">ילדים שמחים</div>
+                <div class="counter-number" data-target="500" data-suffix="+">0</div>
+                <div class="counter-label">ילדים צחקו איתנו</div>
             </div>
             <div class="counter-item fade-up">
-                <div class="counter-number" data-target="30">0</div>
+                <div class="counter-number" data-target="60" data-suffix="+">0</div>
                 <div class="counter-label">מופעים מוצלחים</div>
             </div>
             <div class="counter-item fade-up">
-                <div class="counter-number" data-target="100">0</div>
-                <div class="counter-label" data-suffix="%">הורים ממליצים</div>
+                <div class="counter-number" data-target="100" data-suffix="%">0</div>
+                <div class="counter-label">הורים ממליצים</div>
+            </div>
+            <div class="counter-item fade-up">
+                <div class="counter-number static-text">&lt;3 דק׳</div>
+                <div class="counter-label">זמן תגובה ממוצע</div>
             </div>
         </div>
     </section>
@@ -1319,10 +1323,14 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
+                    if (el.classList.contains('static-text')) {
+                        counterObserver.unobserve(el);
+                        return;
+                    }
                     const target = parseInt(el.getAttribute('data-target'));
-                    const suffix = el.closest('.counter-item').querySelector('.counter-label').getAttribute('data-suffix') || '+';
+                    const suffix = el.getAttribute('data-suffix') || '';
                     let current = 0;
-                    const increment = target / 40;
+                    const increment = target / 45;
                     const timer = setInterval(() => {
                         current += increment;
                         if (current >= target) {
@@ -1330,7 +1338,7 @@
                             clearInterval(timer);
                         }
                         el.textContent = Math.floor(current) + suffix;
-                    }, 30);
+                    }, 25);
                     counterObserver.unobserve(el);
                 }
             });
