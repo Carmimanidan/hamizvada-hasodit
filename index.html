@@ -198,15 +198,14 @@
 
         /* Suitcase animation */
         .suitcase-lid {
-            transform-origin: 15px 38px;
             animation: lidOpen 4s ease-in-out infinite;
         }
 
         @keyframes lidOpen {
-            0%, 100% { transform: rotate(0deg); }
-            15% { transform: rotate(-35deg); }
-            25% { transform: rotate(-30deg); }
-            40% { transform: rotate(0deg); }
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            12% { transform: translateY(-18px) scaleY(0.7); }
+            20% { transform: translateY(-15px) scaleY(0.75); }
+            35% { transform: translateY(0) scaleY(1); }
         }
 
         .sparkle {
@@ -264,7 +263,21 @@
             font-size: 1.15rem;
             color: var(--secondary);
             font-weight: 500;
-            margin-bottom: 35px;
+            margin-bottom: 8px;
+        }
+
+        .hero-credential {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.08);
+            padding: 6px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .hero-tagline {
@@ -1000,6 +1013,7 @@
             <h1 class="brand-name"><span>המזוודה הסודית</span></h1>
             <p class="hero-subtitle">מופע ימי הולדת לילדים שהם באמת זוכרים</p>
             <p class="hero-performer">&#9733; עם איתמר תלתלים &#9733;</p>
+            <p class="hero-credential">שחקן מקצועי, בוגר בית הספר למשחק של יורם לוינשטיין</p>
 
             <p class="hero-tagline">
                 שעה של צחוק, הפתעות וקסם<br>
@@ -1058,7 +1072,7 @@
                 <div class="what-card fade-up">
                     <span class="card-emoji">&#129395;</span>
                     <h3>קומדיה אינטראקטיבית</h3>
-                    <p>איתמר תלתלים מושך את הילדים לתוך המופע. הם לא צופים - הם חלק מהשואו. צחוק מההתחלה ועד הסוף.</p>
+                    <p>איתמר תלתלים, שחקן מקצועי ובוגר לוינשטיין, מושך את הילדים לתוך המופע. הם לא צופים - הם חלק מהשואו. צחוק מההתחלה ועד הסוף.</p>
                 </div>
                 <div class="what-card fade-up">
                     <span class="card-emoji">&#127881;</span>
