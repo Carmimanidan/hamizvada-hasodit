@@ -162,4 +162,34 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
+    <url>
+        <loc>https://carmimanidan.github.io/hamizvada-hasodit/blog/yom-huledet-gil-5.html</loc>
+        <lastmod>2026-04-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://carmimanidan.github.io/hamizvada-hasodit/blog/yom-huledet-gil-6.html</loc>
+        <lastmod>2026-04-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://carmimanidan.github.io/hamizvada-hasodit/blog/yom-huledet-gil-7.html</loc>
+        <lastmod>2026-04-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://carmimanidan.github.io/hamizvada-hasodit/blog/yom-huledet-bagan.html</loc>
+        <lastmod>2026-04-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://carmimanidan.github.io/hamizvada-hasodit/blog/hafala-o-kasamim.html</loc>
+        <lastmod>2026-04-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>
