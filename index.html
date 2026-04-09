@@ -366,25 +366,27 @@
         .hero-social-proof {
             margin-top: 20px;
             position: relative;
-            height: 28px;
+            height: 60px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
         }
 
         .hero-social-proof .proof-slide {
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-            width: 100%;
+            gap: 4px;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.92rem;
+            line-height: 1.4;
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(8px);
             transition: all 0.5s ease;
+            padding: 0 20px;
         }
 
         .hero-social-proof .proof-slide.active {
@@ -394,7 +396,8 @@
 
         .hero-social-proof .stars-inline {
             color: #FFC107;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-size: 1rem;
         }
 
         /* Urgency bar */
@@ -1211,6 +1214,14 @@
             .suitcase-icon {
                 width: 90px;
                 height: 90px;
+            }
+
+            .hero-social-proof {
+                height: 70px;
+            }
+
+            .hero-social-proof .proof-slide {
+                font-size: 0.85rem;
             }
 
             .hero-trust {
