@@ -25,8 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-    <!-- Facebook Pixel - Replace YOUR_PIXEL_ID with your actual pixel ID -->
-    <!--
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,12 +35,12 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('init', '1648390646411366');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-    -->
+    src="https://www.facebook.com/tr?id=1648390646411366&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
 
     <!-- Schema.org Local Business structured data -->
     <script type="application/ld+json">
@@ -1798,13 +1797,10 @@
             document.getElementById('topNav').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Track WhatsApp clicks (ready for Facebook Pixel)
+        // Track WhatsApp clicks
         document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
             link.addEventListener('click', () => {
-                // Uncomment when pixel is active:
-                // fbq('track', 'Contact', {content_name: 'WhatsApp Click'});
-                // Google Analytics event (uncomment when GA is set up):
-                // gtag('event', 'whatsapp_click', {event_category: 'contact'});
+                fbq('track', 'Contact', {content_name: 'WhatsApp Click'});
             });
         });
     </script>
