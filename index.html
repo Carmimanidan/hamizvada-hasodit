@@ -943,31 +943,32 @@
             color: rgba(255,255,255,0.7);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            max-width: 960px;
+        .gallery-carousel-wrapper {
+            position: relative;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        .gallery-item {
-            aspect-ratio: 4/3;
-            border-radius: var(--radius);
+        .gallery-carousel {
+            display: flex;
             overflow: hidden;
+            border-radius: var(--radius);
             position: relative;
+            aspect-ratio: 4/3;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03);
+        .gallery-slide {
+            min-width: 100%;
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .gallery-item img {
+        .gallery-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .gallery-caption {
@@ -975,11 +976,95 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 12px 16px;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 14px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.75));
             color: white;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-align: right;
+        }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            cursor: pointer;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 3;
+            color: var(--dark);
+        }
+
+        .gallery-btn:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-btn-prev {
+            right: -22px;
+        }
+
+        .gallery-btn-next {
+            left: -22px;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .gallery-dot.active {
+            background: var(--secondary);
+            transform: scale(1.3);
+        }
+
+        .gallery-counter {
+            text-align: center;
+            margin-top: 12px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-carousel-wrapper {
+                max-width: 100%;
+            }
+
+            .gallery-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .gallery-btn-prev {
+                right: 10px;
+            }
+
+            .gallery-btn-next {
+                left: 10px;
+            }
         }
 
         /* ===== TESTIMONIALS ===== */
@@ -1486,9 +1571,8 @@
                 display: none;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 400px;
+            .gallery-carousel-wrapper {
+                max-width: 100%;
             }
 
             body {
@@ -1663,55 +1747,61 @@
         <div class="container">
             <h2 class="section-title fade-up">רגעים מהמופע</h2>
             <p class="section-subtitle fade-up">ככה נראה מופע של המזוודה הסודית — ילדים צוחקים, הורים נחים</p>
-            <div class="gallery-grid">
-                <div class="gallery-item fade-up">
-                    <img src="show-crowd-hall.jpeg" alt="מופע יום הולדת לילדים באולם - איתמר המפוזר מול קהל גדול של ילדים והורים עם בלונים" loading="lazy">
-                    <div class="gallery-caption">מופע מול קהל שלם — ילדים והורים</div>
+            <div class="gallery-carousel-wrapper fade-up">
+                <div class="gallery-carousel" id="galleryCarousel">
+                    <div class="gallery-slide">
+                        <img src="show-crowd-hall.jpeg" alt="מופע יום הולדת לילדים באולם - איתמר המפוזר מול קהל גדול של ילדים והורים עם בלונים">
+                        <div class="gallery-caption">מופע מול קהל שלם — ילדים והורים</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-birthday-girl-stage.jpeg" alt="ילדת יום הולדת על הבמה עם איתמר המפוזר - הפעלה אינטראקטיבית לילדים">
+                        <div class="gallery-caption">ילדת יום ההולדת על הבמה</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-kids-hands-up.jpeg" alt="ילדים עם ידיים למעלה במופע יום הולדת אינטראקטיבי - כולם משתתפים">
+                        <div class="gallery-caption">כולם משתתפים — ידיים למעלה!</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="itamar-mic.jpeg" alt="איתמר המפוזר עם מיקרופון - שחקן מקצועי בוגר יורם לוינשטיין במופע יום הולדת">
+                        <div class="gallery-caption">איתמר המפוזר בפעולה</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-closeup-girls.jpeg" alt="איתמר המפוזר באינטראקציה קרובה עם ילדות במופע יום הולדת">
+                        <div class="gallery-caption">רגע אישי עם הילדות</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-parachute.jpeg" alt="הפעלת מצנח צבעוני עם ילדים במופע יום הולדת - פעילות קבוצתית">
+                        <div class="gallery-caption">משחק המצנח — כולם ביחד</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-parachute-excited.jpeg" alt="ילדים צועקים מהתרגשות במשחק מצנח צבעוני ביום הולדת">
+                        <div class="gallery-caption">ילדים צועקים מהתרגשות</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-parachute-dads.jpeg" alt="אבות משתתפים עם ילדים במשחק מצנח צבעוני - גם ההורים חלק מהכיף">
+                        <div class="gallery-caption">גם האבות נכנסים לעניין</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-cake-5.jpeg" alt="איתמר המפוזר עם ילדת יום הולדת ליד עוגה - חגיגת גיל 5">
+                        <div class="gallery-caption">טקס העוגה — הרגע המיוחד</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-cake-3.jpeg" alt="טקס עוגת יום הולדת גיל 3 עם ילדים והורים - חגיגה משפחתית">
+                        <div class="gallery-caption">יום הולדת 3 — כל המשפחה חוגגת</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-interaction-kid.jpeg" alt="איתמר המפוזר באינטראקציה אישית עם ילד במופע יום הולדת">
+                        <div class="gallery-caption">רגע אישי — כל ילד מקבל תשומת לב</div>
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="show-balloon-3.jpeg" alt="איתמר המפוזר עם בלון מספר 3 וילדים ביום הולדת">
+                        <div class="gallery-caption">בלונים, חיוכים ויום הולדת</div>
+                    </div>
                 </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-birthday-girl-stage.jpeg" alt="ילדת יום הולדת על הבמה עם איתמר המפוזר - הפעלה אינטראקטיבית לילדים" loading="lazy">
-                    <div class="gallery-caption">ילדת יום ההולדת על הבמה</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-kids-hands-up.jpeg" alt="ילדים עם ידיים למעלה במופע יום הולדת אינטראקטיבי - כולם משתתפים" loading="lazy">
-                    <div class="gallery-caption">כולם משתתפים — ידיים למעלה!</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="itamar-mic.jpeg" alt="איתמר המפוזר עם מיקרופון - שחקן מקצועי בוגר יורם לוינשטיין במופע יום הולדת" loading="lazy">
-                    <div class="gallery-caption">איתמר המפוזר בפעולה</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-closeup-girls.jpeg" alt="איתמר המפוזר באינטראקציה קרובה עם ילדות במופע יום הולדת" loading="lazy">
-                    <div class="gallery-caption">רגע אישי עם הילדות</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-parachute.jpeg" alt="הפעלת מצנח צבעוני עם ילדים במופע יום הולדת - פעילות קבוצתית" loading="lazy">
-                    <div class="gallery-caption">משחק המצנח — כולם ביחד</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-parachute-excited.jpeg" alt="ילדים צועקים מהתרגשות במשחק מצנח צבעוני ביום הולדת" loading="lazy">
-                    <div class="gallery-caption">ילדים צועקים מהתרגשות</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-parachute-dads.jpeg" alt="אבות משתתפים עם ילדים במשחק מצנח צבעוני - גם ההורים חלק מהכיף" loading="lazy">
-                    <div class="gallery-caption">גם האבות נכנסים לעניין</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-cake-5.jpeg" alt="איתמר המפוזר עם ילדת יום הולדת ליד עוגה - חגיגת גיל 5" loading="lazy">
-                    <div class="gallery-caption">טקס העוגה — הרגע המיוחד</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-cake-3.jpeg" alt="טקס עוגת יום הולדת גיל 3 עם ילדים והורים - חגיגה משפחתית" loading="lazy">
-                    <div class="gallery-caption">יום הולדת 3 — כל המשפחה חוגגת</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-interaction-kid.jpeg" alt="איתמר המפוזר באינטראקציה אישית עם ילד במופע יום הולדת" loading="lazy">
-                    <div class="gallery-caption">רגע אישי — כל ילד מקבל תשומת לב</div>
-                </div>
-                <div class="gallery-item fade-up">
-                    <img src="show-balloon-3.jpeg" alt="איתמר המפוזר עם בלון מספר 3 וילדים ביום הולדת" loading="lazy">
-                    <div class="gallery-caption">בלונים, חיוכים ויום הולדת</div>
-                </div>
+                <button class="gallery-btn gallery-btn-prev" onclick="galleryNav(-1)">&#8250;</button>
+                <button class="gallery-btn gallery-btn-next" onclick="galleryNav(1)">&#8249;</button>
+                <div class="gallery-dots" id="galleryDots"></div>
+                <div class="gallery-counter"><span id="galleryCurrent">1</span> / 12</div>
             </div>
         </div>
     </section>
@@ -2034,6 +2124,51 @@
     </div>
 
     <script>
+        // Gallery carousel
+        (function() {
+            const carousel = document.getElementById('galleryCarousel');
+            const slides = carousel.querySelectorAll('.gallery-slide');
+            const dotsContainer = document.getElementById('galleryDots');
+            const counterEl = document.getElementById('galleryCurrent');
+            let current = 0;
+            let startX = 0;
+            let isDragging = false;
+
+            // Create dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goTo(i);
+                dotsContainer.appendChild(dot);
+            });
+
+            function goTo(index) {
+                current = (index + slides.length) % slides.length;
+                slides.forEach(s => s.style.transform = 'translateX(' + (current * 100) + '%)');
+                dotsContainer.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+                counterEl.textContent = current + 1;
+            }
+
+            window.galleryNav = function(dir) { goTo(current + dir); };
+
+            // Touch/swipe support
+            carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive: true});
+            carousel.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+            });
+
+            // Auto-advance every 4 seconds
+            let autoTimer = setInterval(() => goTo(current + 1), 4000);
+            carousel.addEventListener('touchstart', () => clearInterval(autoTimer));
+            carousel.closest('.gallery-carousel-wrapper').addEventListener('mouseenter', () => clearInterval(autoTimer));
+            carousel.closest('.gallery-carousel-wrapper').addEventListener('mouseleave', () => {
+                autoTimer = setInterval(() => goTo(current + 1), 4000);
+            });
+        })();
+
         // Testimonial carousel
         (function() {
             const slides = document.querySelectorAll('#proofCarousel .proof-slide');
