@@ -704,6 +704,230 @@
             font-size: 1.05rem;
         }
 
+        /* ===== EVENT TIMELINE ===== */
+        .timeline-section {
+            background: linear-gradient(135deg, #F8F0FF 0%, #FFF5F0 50%, #F0FFF8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(123,47,247,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .timeline-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Progress bar track */
+        .timeline-track {
+            position: absolute;
+            right: 34px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #E8E0F0;
+            border-radius: 4px;
+            z-index: 0;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to bottom, var(--primary), var(--purple), var(--accent));
+            border-radius: 4px;
+            transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .timeline-marker {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid #E8E0F0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item.active .timeline-marker {
+            border-color: var(--purple);
+            box-shadow: 0 4px 20px rgba(123,47,247,0.3);
+            transform: scale(1.1);
+        }
+
+        .timeline-item:nth-child(1).active .timeline-marker { border-color: var(--primary); box-shadow: 0 4px 20px rgba(255,107,53,0.3); }
+        .timeline-item:nth-child(2).active .timeline-marker { border-color: var(--secondary); box-shadow: 0 4px 20px rgba(255,209,102,0.4); }
+        .timeline-item:nth-child(3).active .timeline-marker { border-color: var(--purple); box-shadow: 0 4px 20px rgba(123,47,247,0.3); }
+        .timeline-item:nth-child(4).active .timeline-marker { border-color: var(--pink); box-shadow: 0 4px 20px rgba(255,107,157,0.3); }
+        .timeline-item:nth-child(5).active .timeline-marker { border-color: var(--accent); box-shadow: 0 4px 20px rgba(6,214,160,0.3); }
+
+        .timeline-body {
+            flex: 1;
+            padding-top: 5px;
+        }
+
+        .timeline-time {
+            display: inline-block;
+            font-family: 'Rubik', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            background: var(--gray);
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+            transition: background 0.4s ease;
+        }
+
+        .timeline-item:nth-child(1).active .timeline-time { background: var(--primary); }
+        .timeline-item:nth-child(2).active .timeline-time { background: #D4A017; }
+        .timeline-item:nth-child(3).active .timeline-time { background: var(--purple); }
+        .timeline-item:nth-child(4).active .timeline-time { background: var(--pink); }
+        .timeline-item:nth-child(5).active .timeline-time { background: var(--accent); }
+
+        .timeline-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-desc {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, margin 0.4s ease;
+            margin-bottom: 0;
+        }
+
+        .timeline-item.active .timeline-desc {
+            max-height: 200px;
+            opacity: 1;
+            margin-bottom: 5px;
+        }
+
+        .timeline-hint {
+            font-family: 'Rubik', sans-serif;
+            font-size: 0.9rem;
+            color: var(--purple);
+            opacity: 0.7;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .timeline-hint .tap-icon {
+            display: inline-block;
+            animation: tapPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes tapPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .timeline-cta-row {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .timeline-cta-row .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-cta-row .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37,211,102,0.4);
+        }
+
+        /* Mobile responsive for timeline */
+        @media (max-width: 768px) {
+            .timeline-track {
+                right: 26px;
+            }
+
+            .timeline-marker {
+                width: 54px;
+                height: 54px;
+                font-size: 1.4rem;
+            }
+
+            .timeline-item {
+                gap: 18px;
+            }
+
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+
+            .timeline-desc {
+                font-size: 0.95rem;
+            }
+
+            .timeline-time {
+                font-size: 0.8rem;
+            }
+        }
+
         /* ===== GALLERY PLACEHOLDER ===== */
         .gallery-section {
             background: linear-gradient(135deg, #1A1A2E, #16213E);
@@ -1304,6 +1528,7 @@
         <a href="index.html" class="nav-brand">&#129520; המזוודה הסודית</a>
         <div class="nav-links">
             <a href="#what">המופע</a>
+            <a href="#timeline">איך זה עובד</a>
             <a href="#testimonials">המלצות</a>
             <a href="#faq">שאלות</a>
             <a href="blog/">בלוג</a>
@@ -1463,6 +1688,72 @@
                     <img src="itamar3.jpeg" alt="הפעלת יום הולדת בבית - איתמר המפוזר עם ילדות" loading="lazy">
                     <div class="gallery-caption">יום הולדת בבית — הילדים חלק מהשואו</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENT TIMELINE -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <h2 class="section-title fade-up">איך נראה יום הולדת עם המזוודה הסודית?</h2>
+            <p class="section-subtitle fade-up">שעה וחצי של חוויה מסודרת, בלי הפתעות (חוץ מאלה שבמזוודה)</p>
+            <!-- timeline hint removed - all steps visible by default -->
+
+            <div class="timeline-container">
+                <div class="timeline-track">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+
+                <div class="timeline-item active" onclick="activateTimeline(this)">
+                    <div class="timeline-marker">&#128188;</div>
+                    <div class="timeline-body">
+                        <span class="timeline-time">שעה לפני</span>
+                        <h3 class="timeline-title">הגעה והתארגנות</h3>
+                        <p class="timeline-desc">איתמר מגיע שעה לפני תחילת האירוע. ההתארגנות קצרה, אבל הזמן הזה חשוב - הוא שובר את הקרח עם הילדים הראשונים שמגיעים, כדי שירגישו בנוח עוד לפני שהמופע מתחיל.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item active" onclick="activateTimeline(this)">
+                    <div class="timeline-marker">&#127926;</div>
+                    <div class="timeline-body">
+                        <span class="timeline-time">הילדים מגיעים</span>
+                        <h3 class="timeline-title">קבלת פנים וחימום</h3>
+                        <p class="timeline-desc">מוזיקה ברקע, צחוקים, היכרות עם כל ילד שמגיע. אווירה נעימה שבונה התרגשות. הילדים מתחברים לאיתמר עוד לפני שהמופע מתחיל.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item active" onclick="activateTimeline(this)">
+                    <div class="timeline-marker">&#127914;</div>
+                    <div class="timeline-body">
+                        <span class="timeline-time">40-45 דקות</span>
+                        <h3 class="timeline-title">המופע!</h3>
+                        <p class="timeline-desc">הילדים יושבים כמו בהצגה ומקבלים מופע קומדיה אינטראקטיבי ומצחיק. הפתעות מהמזוודה הסודית, קסמים, צחוקים בלי הפסקה. ואתם? יושבים בצד ונהנים.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item active" onclick="activateTimeline(this)">
+                    <div class="timeline-marker">&#127829;</div>
+                    <div class="timeline-body">
+                        <span class="timeline-time">הפסקה קצרה</span>
+                        <h3 class="timeline-title">כיבוד ואוכל</h3>
+                        <p class="timeline-desc">הפסקה קצרה לפיצות, כיבוד או מה שהכנתם. הילדים עדיין באנרגיה גבוהה ומספרים אחד לשני על הרגעים הכי מצחיקים מהמופע.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item active" onclick="activateTimeline(this)">
+                    <div class="timeline-marker">&#127874;</div>
+                    <div class="timeline-body">
+                        <span class="timeline-time">סיום מושלם</span>
+                        <h3 class="timeline-title">טקס עוגה, בלונים וסיום</h3>
+                        <p class="timeline-desc">הרגע הגדול - עוגה, שירת "יום הולדת שמח", בלונים ואווירת חגיגה. הילדים הולכים הביתה עם חיוך ענק וזיכרון שנשאר.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-cta-row fade-up">
+                <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%20%F0%9F%91%8B%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%9E%D7%95%D7%A4%D7%A2%20%D7%99%D7%95%D7%9D%20%D7%94%D7%95%D7%9C%D7%93%D7%AA" class="btn-whatsapp" onclick="fbq('track','Contact')">
+                    &#128172; רוצים לשריין תאריך? דברו איתנו
+                </a>
             </div>
         </div>
     </section>
@@ -1803,6 +2094,36 @@
                 fbq('track', 'Contact', {content_name: 'WhatsApp Click'});
             });
         });
+
+        // Timeline interactivity
+        function activateTimeline(clickedItem) {
+            const items = document.querySelectorAll('.timeline-item');
+            const progress = document.getElementById('timelineProgress');
+            const wasActive = clickedItem.classList.contains('active');
+
+            // Remove active from all
+            items.forEach(item => item.classList.remove('active'));
+
+            // Toggle: if it was active, close it; otherwise open clicked
+            if (!wasActive) {
+                clickedItem.classList.add('active');
+            }
+
+            // Update progress bar based on highest active item
+            const activeItems = document.querySelectorAll('.timeline-item.active');
+            if (activeItems.length > 0) {
+                const lastActive = activeItems[activeItems.length - 1];
+                const idx = Array.from(items).indexOf(lastActive);
+                const pct = ((idx + 1) / items.length) * 100;
+                progress.style.height = pct + '%';
+            } else {
+                progress.style.height = '0%';
+            }
+        }
+
+        // Set progress bar to full on load (all items open by default)
+        const timelineProgress = document.getElementById('timelineProgress');
+        if (timelineProgress) timelineProgress.style.height = '100%';
     </script>
 </body>
 </html>
