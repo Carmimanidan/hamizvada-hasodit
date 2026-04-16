@@ -138,6 +138,30 @@
                     "@type": "Answer",
                     "text": "כלום! רק מקום עם קצת מרחב - סלון, גינה או חדר. אנחנו מביאים את כל השאר. אתם רק צריכים לדאוג לעוגה."
                 }
+            },
+            {
+                "@type": "Question",
+                "name": "מה אם הילד שלי מתבייש ממפעילים?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "בדיוק בשביל זה איתמר מגיע שעה לפני תחילת האירוע. הוא מכיר את הילדים בנינוחות, שובר קרח, ובונה איתם אמון. עד שהמופע מתחיל הוא כבר חבר שלהם. ובמהלך המופע, אנחנו לא מכריחים אף ילד להיות במרכז."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "מה ההבדל בין המופע לבין מפעיל רגיל?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "איתמר הוא שחקן מקצועי, בוגר בית הספר למשחק של יורם לוינשטיין. הילדים לא מקבלים עוד הפעלה עם משחקי כיסאות - הם מקבלים מופע קומדיה אינטראקטיבי ברמה אמיתית."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "כמה זמן מראש צריך להזמין הפעלה ליום הולדת?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "מומלץ 2-3 שבועות מראש. סופי שבוע וחגים מתמלאים מהר - ככל שתזמינו מוקדם יותר, הסיכוי שתתפסו את התאריך שלכם גדל."
+                }
             }
         ]
     }
@@ -1334,6 +1358,54 @@
             font-weight: 700;
         }
 
+        /* ===== AGES SECTION ===== */
+        .ages-section {
+            background: var(--gray-light);
+            padding: 60px 20px;
+        }
+
+        .ages-grid {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .age-tag {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            color: var(--dark);
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .age-tag:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.2);
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .age-tag {
+                width: 65px;
+                height: 65px;
+                font-size: 0.95rem;
+            }
+        }
+
         /* ===== FAQ ===== */
         .faq-section {
             background: var(--gray-light);
@@ -1986,6 +2058,23 @@
         </div>
     </section>
 
+    <!-- AGES -->
+    <section class="ages-section">
+        <div class="container">
+            <h2 class="section-title fade-up">מופע מותאם לכל גיל</h2>
+            <p class="section-subtitle fade-up">איתמר מתאים את המופע לגיל הילדים — לחצו כדי לקרוא עוד</p>
+            <div class="ages-grid fade-up">
+                <a href="gil-4.html" class="age-tag">גיל 4</a>
+                <a href="gil-5.html" class="age-tag">גיל 5</a>
+                <a href="gil-6.html" class="age-tag">גיל 6</a>
+                <a href="gil-7.html" class="age-tag">גיל 7</a>
+                <a href="gil-8.html" class="age-tag">גיל 8</a>
+                <a href="gil-9.html" class="age-tag">גיל 9</a>
+                <a href="gil-10.html" class="age-tag">גיל 10</a>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="container">
@@ -2035,6 +2124,33 @@
                     </div>
                     <div class="faq-answer">
                         <p>כלום! רק מקום עם קצת מרחב (סלון, גינה, חדר) ואנחנו מביאים את כל השאר. אתם רק צריכים לדאוג לעוגה.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        מה אם הילד/ה שלי מתבייש/ת ממפעילים?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>בדיוק בשביל זה איתמר מגיע שעה לפני תחילת האירוע. הוא מכיר את הילדים בנינוחות, שובר קרח, ובונה איתם אמון. עד שהמופע מתחיל — הוא כבר חבר שלהם. ובמהלך המופע, אנחנו לא מכריחים אף ילד להיות במרכז. מי שרוצה — עולה. מי שלא — נהנה מהצד.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        מה ההבדל בין המופע לבין מפעיל רגיל?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ההבדל הוא כמו בין סרט קולנוע לתוכנית ילדים. איתמר הוא שחקן מקצועי, בוגר בית הספר למשחק של יורם לוינשטיין. הילדים לא מקבלים עוד הפעלה עם משחקי כיסאות — הם מקבלים מופע קומדיה אינטראקטיבי ברמה אמיתית.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        כמה זמן מראש צריך להזמין?
+                        <span class="arrow">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>מומלץ 2-3 שבועות מראש. סופי שבוע וחגים מתמלאים מהר — ככל שתזמינו מוקדם יותר, הסיכוי שתתפסו את התאריך שלכם גדל.</p>
                     </div>
                 </div>
             </div>
