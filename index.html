@@ -457,6 +457,44 @@
             50% { opacity: 1; }
         }
 
+        .hero-counters {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hero-counter-item {
+            text-align: center;
+        }
+
+        .hero-counter-item .counter-number {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .hero-counter-item .counter-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-counters {
+                gap: 20px;
+            }
+            .hero-counter-item .counter-number {
+                font-size: 1.3rem;
+            }
+            .hero-counter-item .counter-label {
+                font-size: 0.7rem;
+            }
+        }
+
         .hero-credential {
             font-size: 0.95rem;
             color: rgba(255,255,255,0.6);
@@ -1675,11 +1713,10 @@
     <nav class="top-nav" id="topNav">
         <a href="index.html" class="nav-brand">&#129520; המזוודה הסודית</a>
         <div class="nav-links">
-            <a href="#what">המופע</a>
-            <a href="#timeline">איך זה עובד</a>
+            <a href="#gallery">גלריה</a>
             <a href="#testimonials">המלצות</a>
+            <a href="#timeline">איך זה עובד</a>
             <a href="#faq">שאלות</a>
-            <a href="blog/">בלוג</a>
         </div>
     </nav>
 
@@ -1755,52 +1792,19 @@
             </div>
 
             <div class="urgency-bar" id="urgencyBar"></div>
-        </div>
-    </section>
 
-    <!-- COUNTER -->
-    <section class="counter-section">
-        <div class="counter-grid">
-            <div class="counter-item fade-up">
-                <div class="counter-number" data-target="500" data-suffix="+">0</div>
-                <div class="counter-label">ילדים צחקו איתנו</div>
-            </div>
-            <div class="counter-item fade-up">
-                <div class="counter-number" data-target="60" data-suffix="+">0</div>
-                <div class="counter-label">מופעים מוצלחים</div>
-            </div>
-            <div class="counter-item fade-up">
-                <div class="counter-number static-text">&#9733; 5.0</div>
-                <div class="counter-label">דירוג הורים</div>
-            </div>
-            <div class="counter-item fade-up">
-                <div class="counter-number static-text">&lt;3 דק׳</div>
-                <div class="counter-label">זמן תגובה ממוצע</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT IS THE SHOW -->
-    <section class="what-section" id="what">
-        <div class="container">
-            <h2 class="section-title fade-up">הפעלה ליום הולדת שהיא באמת מופע</h2>
-            <p class="section-subtitle fade-up">לא עוד הפעלה רגילה. מופע קומדיה אמיתי עם שחקן מקצועי, בוגר בית הספר למשחק של יורם לוינשטיין</p>
-
-            <div class="what-grid">
-                <div class="what-card fade-up">
-                    <span class="card-emoji">&#129395;</span>
-                    <h3>קומדיה אינטראקטיבית</h3>
-                    <p>איתמר המפוזר, שחקן מקצועי בוגר יורם לוינשטיין, מושך את הילדים לתוך המופע. הם לא צופים - הם חלק מהשואו. צחוק מההתחלה ועד הסוף.</p>
+            <div class="hero-counters">
+                <div class="hero-counter-item">
+                    <div class="counter-number" data-target="500" data-suffix="+">0</div>
+                    <div class="counter-label">ילדים צחקו איתנו</div>
                 </div>
-                <div class="what-card fade-up">
-                    <span class="card-emoji">&#127881;</span>
-                    <h3>הפתעות מהמזוודה</h3>
-                    <p>מהמזוודה הסודית יוצאים אביזרים מטורפים, הפתעות ורגעים שהילדים לא מצפים להם. כל מופע הוא חוויה חדשה.</p>
+                <div class="hero-counter-item">
+                    <div class="counter-number" data-target="60" data-suffix="+">0</div>
+                    <div class="counter-label">מופעים מוצלחים</div>
                 </div>
-                <div class="what-card fade-up">
-                    <span class="card-emoji">&#128171;</span>
-                    <h3>שעה של שקט בשבילכם</h3>
-                    <p>הילדים מרוכזים, צוחקים ונהנים. אתם יושבים בצד, שותים קפה ונהנים מהאירוע בלי כאוס.</p>
+                <div class="hero-counter-item">
+                    <div class="counter-number static-text">&#9733; 5.0</div>
+                    <div class="counter-label">דירוג הורים</div>
                 </div>
             </div>
         </div>
@@ -1869,12 +1873,37 @@
         </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-up">מפעיל מומלץ ליום הולדת? תשאלו את ההורים</h2>
+            <p class="section-subtitle fade-up">הורים שכבר הזמינו את המזוודה הסודית ליום ההולדת של הילדים</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"הילדים לא הפסיקו לצחוק. גם שבוע אחרי הם עדיין מדברים על המזוודה הסודית. איתמר פשוט גנב את ההצגה!"</p>
+                    <div class="author">מיכל ר. <span>| אמא ליהלי בת 6, רעננה</span></div>
+                </div>
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"חיפשתי משהו שונה מהפעלה רגילה והמזוודה הסודית הייתה בול. מקצועי, מצחיק, והילדים היו מרותקים מהרגע הראשון."</p>
+                    <div class="author">נועה ל. <span>| אמא לאורי בן 7, הרצליה</span></div>
+                </div>
+                <div class="testimonial fade-up">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"סוף סוף יכולתי לשבת בצד ולהנות. איתמר שלט בילדים בצורה מדהימה, כולם היו מרוכזים ונהנים. ממליצה בחום!"</p>
+                    <div class="author">שירה כ. <span>| אמא לנועם בן 5, כפר סבא</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- EVENT TIMELINE -->
     <section class="timeline-section" id="timeline">
         <div class="container">
             <h2 class="section-title fade-up">איך נראה יום הולדת עם המזוודה הסודית?</h2>
             <p class="section-subtitle fade-up">שעה וחצי של חוויה מסודרת, בלי הפתעות (חוץ מאלה שבמזוודה)</p>
-            <!-- timeline hint removed - all steps visible by default -->
 
             <div class="timeline-container">
                 <div class="timeline-track">
@@ -1935,95 +1964,6 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how-section">
-        <div class="container">
-            <h2 class="section-title fade-up">להזמין מפעיל ליום הולדת עוד לא היה כזה פשוט</h2>
-            <p class="section-subtitle fade-up">שלושה צעדים וסגרתם את ההפעלה ליום ההולדת. בלי כאב ראש</p>
-
-            <div class="how-steps">
-                <div class="step fade-up">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>שולחים הודעה</h3>
-                        <p>מספרים לנו על האירוע - תאריך, גיל ילד/ה חוגג/ת, כמה ילדים, ומיקום. תוך דקות נחזור אליכם.</p>
-                    </div>
-                </div>
-                <div class="step fade-up">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>סוגרים תאריך</h3>
-                        <p>בודקים זמינות, מתאמים שעה, וסגרנו. בלי הלוך וחזור מיותר.</p>
-                    </div>
-                </div>
-                <div class="step fade-up">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>איתמר מגיע ומרים את האירוע</h3>
-                        <p>ביום האירוע איתמר מגיע עם המזוודה הסודית, ומספק שעה וחצי של צחוק, הפתעות וזיכרונות שנשארים.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="container">
-            <h2 class="section-title fade-up">מפעיל מומלץ ליום הולדת? תשאלו את ההורים</h2>
-            <p class="section-subtitle fade-up">הורים שכבר הזמינו את המזוודה הסודית ליום ההולדת של הילדים</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial fade-up">
-                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p>"הילדים לא הפסיקו לצחוק. גם שבוע אחרי הם עדיין מדברים על המזוודה הסודית. איתמר פשוט גנב את ההצגה!"</p>
-                    <div class="author">מיכל ר. <span>| אמא ליהלי בת 6, רעננה</span></div>
-                </div>
-                <div class="testimonial fade-up">
-                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p>"חיפשתי משהו שונה מהפעלה רגילה והמזוודה הסודית הייתה בול. מקצועי, מצחיק, והילדים היו מרותקים מהרגע הראשון."</p>
-                    <div class="author">נועה ל. <span>| אמא לאורי בן 7, הרצליה</span></div>
-                </div>
-                <div class="testimonial fade-up">
-                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p>"סוף סוף יכולתי לשבת בצד ולהנות. איתמר שלט בילדים בצורה מדהימה, כולם היו מרוכזים ונהנים. ממליצה בחום!"</p>
-                    <div class="author">שירה כ. <span>| אמא לנועם בן 5, כפר סבא</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY US -->
-    <section class="why-section">
-        <div class="container">
-            <h2 class="section-title fade-up">למה לבחור את המזוודה הסודית ליום ההולדת?</h2>
-            <p class="section-subtitle fade-up">כי הילדים שלכם מגיעים הפעלה ברמה אחרת</p>
-
-            <div class="why-grid">
-                <div class="why-item fade-up">
-                    <span class="why-emoji">&#127917;</span>
-                    <h3>מופע, לא הפעלה</h3>
-                    <p>תוכן מקורי, תסריט מובנה, ולא סתם משחקים עם מוזיקה ברקע</p>
-                </div>
-                <div class="why-item fade-up">
-                    <span class="why-emoji">&#128663;</span>
-                    <h3>מגיעים אליכם</h3>
-                    <p>עד הבית, הגן או כל מקום שתבחרו. אתם לא צריכים להתאמץ</p>
-                </div>
-                <div class="why-item fade-up">
-                    <span class="why-emoji">&#128170;</span>
-                    <h3>ניסיון מוכח</h3>
-                    <p>עשרות מופעים מוצלחים, ילדים שמחים והורים מרוצים</p>
-                </div>
-                <div class="why-item fade-up">
-                    <span class="why-emoji">&#128153;</span>
-                    <h3>אמינות ומקצועיות</h3>
-                    <p>מגיעים בזמן, מופע מלוטש, ותקשורת מהירה מהרגע הראשון</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CITIES / SERVICE AREA -->
     <section class="cities-section">
         <div class="container">
@@ -2055,14 +1995,8 @@
                 <a href="ramla.html" class="city-tag">רמלה</a>
             </div>
             <p class="cities-note fade-up">לא מוצאים את העיר שלכם? <a href="https://wa.me/972546379936?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%97%D7%A0%D7%95%20%D7%92%D7%A8%D7%99%D7%9D%20%D7%91-...%20%D7%94%D7%90%D7%9D%20%D7%90%D7%AA%D7%9D%20%D7%9E%D7%92%D7%99%D7%A2%D7%99%D7%9D%20%D7%90%D7%9C%D7%99%D7%A0%D7%95%3F">דברו איתנו ונבדוק</a></p>
-        </div>
-    </section>
 
-    <!-- AGES -->
-    <section class="ages-section">
-        <div class="container">
-            <h2 class="section-title fade-up">מופע מותאם לכל גיל</h2>
-            <p class="section-subtitle fade-up">איתמר מתאים את המופע לגיל הילדים — לחצו כדי לקרוא עוד</p>
+            <h3 class="section-title fade-up" style="font-size: clamp(1.3rem, 3vw, 1.6rem); margin-top: 40px;">מופע מותאם לכל גיל</h3>
             <div class="ages-grid fade-up">
                 <a href="gil-4.html" class="age-tag">גיל 4</a>
                 <a href="gil-5.html" class="age-tag">גיל 5</a>
@@ -2153,36 +2087,6 @@
                         <p>מומלץ 2-3 שבועות מראש. סופי שבוע וחגים מתמלאים מהר — ככל שתזמינו מוקדם יותר, הסיכוי שתתפסו את התאריך שלכם גדל.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOG PREVIEW -->
-    <section class="blog-preview-section">
-        <div class="container">
-            <h2 class="section-title fade-up">מדריכים להורים</h2>
-            <p class="section-subtitle fade-up">טיפים ומידע שימושי על ימי הולדת לילדים</p>
-
-            <div class="blog-cards">
-                <a href="blog/kama-ola.html" class="blog-card fade-up">
-                    <span class="card-tag">מחירים</span>
-                    <h3>כמה עולה הפעלה ליום הולדת? מדריך מחירים 2025</h3>
-                    <p>הכל על טווחי המחירים בשוק, מה משפיע על העלות, ואיך להשוות הצעות בצורה חכמה.</p>
-                </a>
-                <a href="blog/eich-bocharim.html" class="blog-card fade-up">
-                    <span class="card-tag">מדריך</span>
-                    <h3>איך בוחרים מפעיל ליום הולדת? 7 דברים שחייבים לבדוק</h3>
-                    <p>לפני שסוגרים - 7 שאלות שהורים חכמים שואלים כדי להימנע מהפתעות לא נעימות.</p>
-                </a>
-                <a href="blog/raayonot-bait.html" class="blog-card fade-up">
-                    <span class="card-tag">רעיונות</span>
-                    <h3>רעיונות ליום הולדת לילדים בבית - המדריך המלא</h3>
-                    <p>הפעלות עצמאיות, טיפים לפי גיל, צ'קליסט ליום האירוע - הכל במקום אחד.</p>
-                </a>
-            </div>
-
-            <div class="blog-all-link fade-up">
-                <a href="blog/">לכל המדריכים &#8592;</a>
             </div>
         </div>
     </section>
