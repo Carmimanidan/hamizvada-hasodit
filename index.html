@@ -1355,12 +1355,74 @@
             color: var(--white);
         }
 
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            padding: 8px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.2s ease;
+        }
+
+        .top-nav.menu-open .nav-toggle span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .top-nav.menu-open .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+        .top-nav.menu-open .nav-toggle span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
             .nav-links {
-                gap: 12px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 8px 0;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                pointer-events: none;
+                transition: max-height 0.3s ease, opacity 0.2s ease;
+            }
+            .top-nav.menu-open .nav-links {
+                max-height: 320px;
+                opacity: 1;
+                pointer-events: auto;
             }
             .nav-links a {
-                font-size: 0.8rem;
+                display: block;
+                padding: 14px 24px;
+                font-size: 1rem;
+                color: rgba(255,255,255,0.9);
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+            .nav-links a:last-child {
+                border-bottom: 0;
             }
         }
 
@@ -1820,7 +1882,12 @@
             <span class="nav-brand-presents">ברני אירועים מציגים</span>
             <span>המזוודה הסודית 🧳</span>
         </a>
-        <div class="nav-links">
+        <button class="nav-toggle" id="navToggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
             <a href="#gallery">גלריה</a>
             <a href="#testimonials">המלצות</a>
             <a href="#timeline">איך זה עובד</a>
@@ -2416,6 +2483,29 @@
         window.addEventListener('scroll', () => {
             document.getElementById('topNav').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Mobile nav toggle
+        (function() {
+            const nav = document.getElementById('topNav');
+            const toggle = document.getElementById('navToggle');
+            const links = document.getElementById('navLinks');
+            const setOpen = (open) => {
+                nav.classList.toggle('menu-open', open);
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                toggle.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+            };
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setOpen(!nav.classList.contains('menu-open'));
+            });
+            links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+            document.addEventListener('click', (e) => {
+                if (nav.classList.contains('menu-open') && !nav.contains(e.target)) setOpen(false);
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav.classList.contains('menu-open')) setOpen(false);
+            });
+        })();
 
         // Track WhatsApp clicks
         document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
