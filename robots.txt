@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carmimanidan.github.io/hamizvada-hasodit/sitemap.xml
+Sitemap: https://barni.fun/sitemap.xml
