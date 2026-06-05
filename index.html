@@ -1084,6 +1084,27 @@
             overflow: hidden;
         }
 
+        .gallery-carousel-wrapper::before,
+        .gallery-carousel-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .gallery-carousel-wrapper::before {
+            right: 0;
+            background: linear-gradient(to left, #16213E, transparent);
+        }
+
+        .gallery-carousel-wrapper::after {
+            left: 0;
+            background: linear-gradient(to right, #1A1A2E, transparent);
+        }
+
         .gallery-track {
             display: flex;
             gap: 16px;
